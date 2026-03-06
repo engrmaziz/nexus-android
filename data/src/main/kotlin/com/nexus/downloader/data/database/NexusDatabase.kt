@@ -14,7 +14,7 @@ import com.nexus.downloader.data.database.entity.*
         BookmarkEntity::class,
         SettingsEntity::class
     ],
-    version = 1,
+    version = 2,
     exportSchema = false
 )
 abstract class NexusDatabase : RoomDatabase() {
