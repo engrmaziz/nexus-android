@@ -5,7 +5,8 @@ data class Download(
     val url: String,
     val fileName: String,
     val fileSize: Long = 0,
-    val status: DownloadStatus = DownloadStatus.PENDING,
+    val destinationPath: String = "",
+    val status: DownloadStatus = DownloadStatus.QUEUED,
     val progress: Int = 0,
     val speed: Long = 0,
     val eta: Long = 0,
@@ -13,5 +14,15 @@ data class Download(
 )
 
 enum class DownloadStatus {
-    PENDING, DOWNLOADING, PAUSED, COMPLETED, FAILED, CANCELLED
+    PENDING,
+    QUEUED,
+    FETCHING_METADATA,
+    ALLOCATING_CHUNKS,
+    DOWNLOADING,
+    PAUSED,
+    VERIFYING,
+    ASSEMBLING,
+    COMPLETED,
+    FAILED,
+    CANCELLED
 }

@@ -9,6 +9,9 @@ interface ChunkDao {
     @Query("SELECT * FROM chunks WHERE downloadId = :downloadId")
     fun getChunksByDownloadId(downloadId: Long): Flow<List<ChunkEntity>>
 
+    @Query("SELECT * FROM chunks WHERE downloadId = :downloadId")
+    suspend fun getChunksByDownloadIdOnce(downloadId: Long): List<ChunkEntity>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertChunk(chunk: ChunkEntity): Long
 

@@ -20,6 +20,7 @@ object DatabaseModule {
     @Singleton
     fun provideNexusDatabase(@ApplicationContext context: Context): NexusDatabase =
         Room.databaseBuilder(context, NexusDatabase::class.java, AppConstants.DATABASE_NAME)
+            .fallbackToDestructiveMigration()
             .build()
 
     @Provides
